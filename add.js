@@ -13,12 +13,23 @@ function add(inputString){
 
     const splitter = new RegExp(`[,\n${delimiter}]`, 'g');
     const nums = input.split(splitter);
+    let negativeNums = '';
+    let sum = 0;
 
-    if(nums.length === 1){
-        return +nums[0];
+    nums.forEach(num => {
+        if(+num < 0){
+            negativeNums += `${negativeNums.length ? ',': ''}${num}`;
+        }
+        else{
+            sum += (+num);
+        }
+    })
+
+    if(negativeNums.length){
+        throw new Error(`negative numbers not allowed ${negativeNums}`);
     }
     
-    return nums.reduce((acc, a) => acc+(+a), 0);
+    return sum;
 }
 
 module.exports = add;

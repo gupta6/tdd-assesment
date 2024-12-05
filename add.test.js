@@ -22,6 +22,7 @@ describe('add function', () => {
     });
 
     it('should throw an exception containing all the negative numbers if input string contains negative number', () => {
-        expect(add('//;\n2\n3;4;6\n1;5,-6')).toBe('negative numbers not allowed -6');
+        expect(() => {add('//;\n2\n3;4;6\n1;5,-6')}).toThrow('negative numbers not allowed -6');
+        expect(() => {add('//;\n2\n-3;4;-6\n1;5,-6')}).toThrow('negative numbers not allowed -3,-6,-6');
     });
 })
