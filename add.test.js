@@ -12,4 +12,8 @@ describe('add function', () => {
     it('should return the addition of numbers seperated by comma in input string', () => {
         expect(add('2,3,4')).toBe(9);
     });
+
+    it('should return the addition of numbers seperated by comma, new line in input string', () => {
+        expect(add('2\n3,4,6\n15')).toBe(30);
+    })
 })
