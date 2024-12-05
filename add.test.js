@@ -20,4 +20,8 @@ describe('add function', () => {
     it('should return the addition of numbers seperated by comma, new line and delimiter in input string', () => {
         expect(add('//;\n2\n3;4;6\n15,6')).toBe(36);
     });
+
+    it('should throw an exception containing all the negative numbers if input string contains negative number', () => {
+        expect(add('//;\n2\n3;4;6\n1;5,-6')).toBe('negative numbers not allowed -6');
+    });
 })
