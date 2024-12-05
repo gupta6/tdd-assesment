@@ -3,7 +3,7 @@ function add(inputString){
         return 0;
     }
 
-    const nums = inputString.split(",");
+    const nums = inputString.split(/[\n,]/);
 
     if(nums.length === 1){
         return +nums[0];
