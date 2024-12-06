@@ -3,21 +3,26 @@ function add(inputString){
         return 0;
     }
 
-    let delimiter = '';
+    const delimiters = [];
     let input = inputString;
 
     if(inputString.startsWith('//')){
         const delimiterEndIndex = inputString.indexOf('\n');
         input = inputString.substring(delimiterEndIndex+1);
+        let delimiter = '';
 
         for(let i=2; i<delimiterEndIndex; i++){
             if(inputString[i]!=='[' && inputString[i]!==']'){
                 delimiter += inputString[i];
             }
+            if(inputString[i] === ']'){
+                delimiters.push(delimiter);
+                delimiter = '';
+            }
         }
     }
 
-    const splitter = new RegExp(`[,\n${delimiter}]`, 'g');
+    const splitter = new RegExp(`[,\n${delimiters.join('')}]`, 'g');
     const nums = input.split(splitter);
     let negativeNums = '';
     let sum = 0;
