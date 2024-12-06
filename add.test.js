@@ -17,7 +17,7 @@ describe('add function', () => {
         expect(add('2\n3,4,6\n15')).toBe(30);
     });
 
-    it('should return the addition of numbers seperated by comma, new line and delimiter in input string', () => {
+    it('should return the addition of numbers seperated by comma, new line and custom delimiter passed in input string', () => {
         expect(add('//[;]\n2\n3;4;6\n15,6')).toBe(36);
     });
 
@@ -27,7 +27,7 @@ describe('add function', () => {
     });
 
     it('should return the addition of numbers only less than or equal to 1000', () => {
-        expect(add('//[;]\n2\n3;4;6\n1;5,1003')).toBe(21);
+        expect(add('//[;]\n2\n3;4;6\n1;5,1003')).toBe(21); 
         expect(add('//[;]\n2\n3;4;6\n1;5,1000')).toBe(1021);
     })
 
@@ -37,5 +37,9 @@ describe('add function', () => {
 
     it('should allow multiple delimiters', () => {
         expect(add('//[*][%]\n1*2%3')).toBe(6);
+    })
+
+    it('should work with custom delimiters as well as default', () => {
+        expect(add('//[*****][%][^^^]\n1*****2%3,6\n9^^^12')).toBe(33);
     })
 })
