@@ -25,4 +25,9 @@ describe('add function', () => {
         expect(() => {add('//;\n2\n3;4;6\n1;5,-6')}).toThrow('negative numbers not allowed -6');
         expect(() => {add('//;\n2\n-3;4;-6\n1;5,-6')}).toThrow('negative numbers not allowed -3,-6,-6');
     });
+
+    it('should return the addition of numbers only less than or equal to 1000', () => {
+        expect(add('//;\n2\n3;4;6\n1;5,1003')).toBe(24);
+        expect(add('//;\n2\n3;4;6\n1;5,1000')).toBe(1021);
+    })
 })
