@@ -6,9 +6,15 @@ function add(inputString){
     let delimiter = '';
     let input = inputString;
 
-    if(inputString[0] === '/' && inputString[1] === '/'){
-        delimiter = inputString[2];
-        input = inputString.substring(3);
+    if(inputString.startsWith('//')){
+        const delimiterEndIndex = inputString.indexOf('\n');
+        input = inputString.substring(delimiterEndIndex+1);
+
+        for(let i=2; i<delimiterEndIndex; i++){
+            if(inputString[i]!=='[' && inputString[i]!==']'){
+                delimiter += inputString[i];
+            }
+        }
     }
 
     const splitter = new RegExp(`[,\n${delimiter}]`, 'g');
