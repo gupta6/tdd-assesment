@@ -26,11 +26,11 @@ This project is a simple implementation of a **String Calculator** following the
    - Support for custom delimiters should be added.
    - The custom delimiter is specified in the first line of the input in the format:
      - `"//[delimiter]\n[numbers]"`.
-     - For example, `//;\n1;2` should return `3`.
+     - For example, `//[;]\n1;2` should return `3`.
 
 3. **Negative Numbers**:
    - The calculator should throw an error if any negative numbers are included in the input. For example:
-     - `"1,-2,3"` should throw an error with a message `"negative numbers not allowed: -2"`.
+     - `"1,-2,3"` should throw an error with a message `"negative numbers not allowed -2"`.
 
 4. **Ignore Numbers Greater Than 1000**:
    - Numbers greater than 1000 should be ignored. For example:
