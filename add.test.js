@@ -30,4 +30,8 @@ describe('add function', () => {
         expect(add('//;\n2\n3;4;6\n1;5,1003')).toBe(21);
         expect(add('//;\n2\n3;4;6\n1;5,1000')).toBe(1021);
     })
+
+    it('should allow delimiter of any length', () => {
+        expect(add('//[***]\n1,2***3\n9')).toBe(15);
+    })
 })
