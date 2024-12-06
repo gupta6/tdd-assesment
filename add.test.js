@@ -27,7 +27,7 @@ describe('add function', () => {
     });
 
     it('should return the addition of numbers only less than or equal to 1000', () => {
-        expect(add('//;\n2\n3;4;6\n1;5,1003')).toBe(24);
+        expect(add('//;\n2\n3;4;6\n1;5,1003')).toBe(21);
         expect(add('//;\n2\n3;4;6\n1;5,1000')).toBe(1021);
     })
 })

@@ -20,7 +20,7 @@ function add(inputString){
         if(+num < 0){
             negativeNums += `${negativeNums.length ? ',': ''}${num}`;
         }
-        else{
+        else if(num <= 1000){
             sum += (+num);
         }
     })
