@@ -18,20 +18,24 @@ describe('add function', () => {
     });
 
     it('should return the addition of numbers seperated by comma, new line and delimiter in input string', () => {
-        expect(add('//;\n2\n3;4;6\n15,6')).toBe(36);
+        expect(add('//[;]\n2\n3;4;6\n15,6')).toBe(36);
     });
 
     it('should throw an exception containing all the negative numbers if input string contains negative number', () => {
-        expect(() => {add('//;\n2\n3;4;6\n1;5,-6')}).toThrow('negative numbers not allowed -6');
-        expect(() => {add('//;\n2\n-3;4;-6\n1;5,-6')}).toThrow('negative numbers not allowed -3,-6,-6');
+        expect(() => {add('//[;]\n2\n3;4;6\n1;5,-6')}).toThrow('negative numbers not allowed -6');
+        expect(() => {add('//[;]\n2\n-3;4;-6\n1;5,-6')}).toThrow('negative numbers not allowed -3,-6,-6');
     });
 
     it('should return the addition of numbers only less than or equal to 1000', () => {
-        expect(add('//;\n2\n3;4;6\n1;5,1003')).toBe(21);
-        expect(add('//;\n2\n3;4;6\n1;5,1000')).toBe(1021);
+        expect(add('//[;]\n2\n3;4;6\n1;5,1003')).toBe(21);
+        expect(add('//[;]\n2\n3;4;6\n1;5,1000')).toBe(1021);
     })
 
     it('should allow delimiter of any length', () => {
-        expect(add('//[***]\n1,2***3\n9')).toBe(15);
+        expect(add('//[***]\n1***2***3')).toBe(6);
+    })
+
+    it('should allow multiple delimiters', () => {
+        expect(add('//[*][%]\n1*2%3')).toBe(6);
     })
 })
